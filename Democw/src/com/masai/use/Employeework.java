@@ -203,8 +203,8 @@ public class Employeework {
 						}
 					}
 					if(x==3) {
-//						System.out.println("Give email ");
-			 			String u=e.getEmail();
+						System.out.println("Give email ");
+			 			String u=sc.next();
 			 			System.out.println("Give new password");
 			 			String u1=sc.next();
 			 			try {

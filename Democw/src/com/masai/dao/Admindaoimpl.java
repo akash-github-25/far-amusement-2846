@@ -14,7 +14,7 @@ import com.masai.exception.Departmentexception;
 import com.masai.exception.Employeexception;
 
 public class Admindaoimpl implements Admindao {
-   
+   int leave=1;
 	@Override
 	public String addDepartment(int did, String dname) {
 		// TODO Auto-generated method stub
@@ -274,13 +274,14 @@ String message = "Not Inserted..";
 	@Override
 	public String Leaverequest(int empid) throws Employeexception {
 		// TODO Auto-generated method stub
-		if(empid%2==0) {
+		
+//			System.out.println(leave);
 		String message=null;
 		try(Connection conn= Conn.provideConnection()) {
 		 
 		 
 		
-		 PreparedStatement ps=conn.prepareStatement("update Employee set leaverequest='Yes' where empid=?");
+		 PreparedStatement ps=conn.prepareStatement("update Employee set leaverequest='Yes' where empid=? AND leaves='TL'");
 		 
 		 ps.setInt(1, empid);
 	     
@@ -290,7 +291,7 @@ String message = "Not Inserted..";
 		 if(x > 0)
 			 System.out.println("Leave granted sucessfully..!");
 		 else
-			 System.out.println("failed");
+			 System.out.println("you are not authorized for leave");
 		 
 		}catch(SQLException e) {
 			
@@ -299,11 +300,9 @@ String message = "Not Inserted..";
 		}
 		
 		return message;
-	}else {
-		return "Your request can't be approved by admin";
 	}
 	}
-	}
+
 	
 
 	
