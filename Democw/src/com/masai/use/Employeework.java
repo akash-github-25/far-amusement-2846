@@ -18,7 +18,7 @@ public class Employeework {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Welcome To Human Resource Management App");
+		System.out.println("WELCOME TO HUMAN RESOURCE MANAGEMENT APP");
 		 
 		System.out.println("1.Admin 2.Employee");
 		System.out.println("choose your option");
@@ -35,17 +35,24 @@ public class Employeework {
 			try {
 			     Admin s= dao.loginAdmin(uname, pass);
 			
-		 		System.out.println("Welcome Admin :"+s.getUsername());
+		 		System.out.println("WELCOME ADMIN :"+s.getUsername());
 		 		
 		 		Boolean v=true;
 		 		while(v) {
-		 		System.out.println("1.Add department 2.View department 3.update department 4.Register new employee 5.transfer employee to department 6.grant leave 7.admin logout");
+		 		System.out.println("1.ADD DEPARTMENT\r\n"
+		 				+ "2.VIEW DEPARTMENT\r\n"
+		 				+ " 3.UPDATE DEPARTMENT\r\n"
+		 				+ " 4.REGISTER NEW EMPLOYEE \r\n"
+		 				+ "5.TRANSFER EMPLOYEE TO DEPARTMENTS\r\n"
+		 				+ " 6.GRANT LEAVE \r\n"
+		 				+ "7.ADMIN LOGOUT\r\n"
+		 				+ "");
 		 		
 		 		int x=sc.nextInt();
 		 		if(x==1) {
-		 			System.out.println("Give did");
+		 			System.out.println("Give DepartmentId");
 		 			int a1=sc.nextInt();
-		 			System.out.println("Give dname");
+		 			System.out.println("Give Department Name");
 		 			String a2=sc.next();
 		 			
 		 			String s1 =dao.addDepartment(a1,a2);
@@ -57,7 +64,7 @@ public class Employeework {
 		 			
 		 		}
 		 		if(x==2) {
-		 			System.out.println("Give did to view");
+		 			System.out.println("Give Departmentid To View");
 		 			int c1=sc.nextInt();
 		 			try {
 						Department z=dao.viewDepartment(c1);
@@ -72,9 +79,9 @@ public class Employeework {
 		 		
 		 		}
 		 		if(x==3) {
-		 			System.out.println("Give did for updation");
+		 			System.out.println("Give Departmentid For Updation");
 		 			int u=sc.nextInt();
-		 			System.out.println("Give new dname");
+		 			System.out.println("Give New Department Name");
 		 			String u1=sc.next();
 		 			try {
 						String mes=dao.updateDepartment(u1, u);
@@ -87,10 +94,10 @@ public class Employeework {
 		 			
 		 			
 		 			System.out.println("Enter Employee ID:");
-		 			int marks= sc.nextInt();
+		 			int id= sc.nextInt();
 		 			System.out.println("Enter Employee Name:");
 		 			String sname= sc.next();
-		 			System.out.println("Enter Student Email:");
+		 			System.out.println("Enter Employee Email:");
 		 			String email= sc.next();
 //		 			System.out.println("Enter Student password:");
 //		 			String password= sc.next();
@@ -101,7 +108,7 @@ public class Employeework {
 		 			
 		 			Employee student= new Employee();
 		 			student.setEname(sname);
-		 			student.setEmpid(marks);
+		 			student.setEmpid(id);
 		 			student.setEmail(email);
 //		 			student.setPassword(password);
 		 			
@@ -120,10 +127,10 @@ public class Employeework {
 		 			}
 		 		}
 		 		if(x==5) {
-		 			System.out.println("Enter the did");
+		 			System.out.println("Enter the Departmentid");
 		 			int did= sc.nextInt();
 
-		 			System.out.println("Enter the empid");
+		 			System.out.println("Enter the Employeeid");
 		 			int empid= sc.nextInt();
 		 			String mx=null;
 		 			try {
@@ -141,7 +148,7 @@ public class Employeework {
 		 			}
 		 		}
 		 		if(x==6) {
-		 			System.out.println("Grant leave to empid -");
+		 			System.out.println("Grant Leave To Employee Having Employeeid -");
 		 			int empid=sc.nextInt();
 		 			String b=null;
 		 			try {
@@ -166,7 +173,7 @@ public class Employeework {
 			
 		case 2:
 			System.out.println("EMPLOYEE-LOGIN");
-			System.out.println("Give username");
+			System.out.println("Give Username");
 			String uname1=sc.next();
 			System.out.println("Give Password");
 			String pass1=sc.next();
@@ -177,7 +184,12 @@ public class Employeework {
 				System.out.println("Welcome "+e.getEname());
 				Boolean v=true;
 				while(v) {
-					System.out.println("1.View profile 2.update profile 3.change password 4.request for leave 5.Exit");
+					System.out.println("1.View profile \r\n"
+							+ "2.update profile \r\n"
+							+ "3.change password\r\n"
+							+ " 4.request for leave\r\n"
+							+ " 5.Exit\r\n"
+							+ "");
 					int x=sc.nextInt();
 					if(x==1) {
 //						System.out.println("Give empid to view");
@@ -191,9 +203,9 @@ public class Employeework {
 						}
 					}
 					if(x==2) {
-						System.out.println("Give ename ");
+						System.out.println("Give Employee Name ");
 			 			String u=sc.next();
-			 			System.out.println("Give new email");
+			 			System.out.println("Give New Email");
 			 			String u1=sc.next();
 			 			try {
 							String mes=dao1.updateEmployee(u1, u);
@@ -203,9 +215,9 @@ public class Employeework {
 						}
 					}
 					if(x==3) {
-						System.out.println("Give email ");
+						System.out.println("Give Email ");
 			 			String u=sc.next();
-			 			System.out.println("Give new password");
+			 			System.out.println("Give new Password");
 			 			String u1=sc.next();
 			 			try {
 							String mes=dao1.updatePassword(u1, u);
@@ -225,7 +237,7 @@ public class Employeework {
 					}
 					if(x==5) {
 						v=false;
-						System.out.println("Employee logged out");
+						System.out.println("Employee Logged Out");
 					}
 				}
 			} catch (Employeexception e) {

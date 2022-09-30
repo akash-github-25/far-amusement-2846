@@ -168,7 +168,7 @@ String message = "Not Inserted..";
 		try(Connection conn= Conn.provideConnection()) {
 			
 			PreparedStatement ps= conn.prepareStatement
-					("insert into employee(empid,ename,email,password,leaverequest) values(?,?,?,?,?)");
+					("insert into employee(empid,ename,email,password,leaverequest,Role) values(?,?,?,?,?,?)");
 			
 			
 			
@@ -177,6 +177,7 @@ String message = "Not Inserted..";
 			ps.setString(3, e.getEmail());
 			ps.setString(4, "pass-"+e.getEmpid());
 			ps.setString(5, "NO");
+			ps.setString(6, "TM");
 			
 			int x= ps.executeUpdate();
 			
@@ -281,7 +282,7 @@ String message = "Not Inserted..";
 		 
 		 
 		
-		 PreparedStatement ps=conn.prepareStatement("update Employee set leaverequest='Yes' where empid=? AND leaves='TL'");
+		 PreparedStatement ps=conn.prepareStatement("update Employee set leaverequest='Yes' where empid=? AND Role='TL'");
 		 
 		 ps.setInt(1, empid);
 	     
