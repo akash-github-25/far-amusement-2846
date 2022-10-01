@@ -48,7 +48,7 @@ public class Admindaoimpl implements Admindao {
 	@Override
 	public Admin loginAdmin(String username, String password) throws Adminexception {
 		// TODO Auto-generated method stub
-Admin student = null;
+Admin s1 = null;
 		
 		try(Connection conn = Conn.provideConnection()) {
 			
@@ -69,7 +69,7 @@ Admin student = null;
 				String p= rs.getString("password");
 				
 				
-			student=new Admin(n,p);	
+			s1=new Admin(n,p);	
 				
 				
 			}else
@@ -84,10 +84,10 @@ Admin student = null;
 		
 		
 		
-		return student;
+		return s1;
 	}
 	public Department viewDepartment(int did) throws Departmentexception {
-Department student = null;
+Department s1 = null;
 		
 		try(Connection conn = Conn.provideConnection()) {
 			
@@ -108,7 +108,7 @@ Department student = null;
 				String p= rs.getString("dname");
 				
 				
-			student=new Department(n,p);	
+			s1=new Department(n,p);	
 				
 				
 			}else
@@ -123,14 +123,14 @@ Department student = null;
 		
 		
 		
-		return student;
+		return s1;
 	}
 
 
 	@Override
 	public String updateDepartment(String dname, int did) throws Departmentexception {
 		// TODO Auto-generated method stub
-		String message=null;
+		String s1=null;
 		try(Connection conn= Conn.provideConnection()) {
 		 
 		 
@@ -150,10 +150,10 @@ Department student = null;
 		}catch(SQLException e) {
 			
 			e.printStackTrace();
-			message=e.getMessage();
+			s1=e.getMessage();
 		}
 		
-		return message;
+		return s1;
 	}
 
 
